@@ -9,9 +9,10 @@ Make sure to install composer,php, and mysql 8:
 2. Enter "composer install"
 3. Create a file named ".env" and insert the code from below
 4. After the installation and creating .env file, Enter "php artisan migrate" in the terminal
-5. After the migration, Enter "php artisan serve" in the terminal
-6. Go to the link or url that is displayed in the terminal using your browser and now you can navigate the application.
-7. I have included the postman collection file in this repository also.
+5. Make sure that the DB_Password in the .env file is the same as the password in your database client server/workbench
+6. After the migration, Enter "php artisan serve" in the terminal
+7. Go to the link or url that is displayed in the terminal using your browser and now you can navigate the application.
+8. I have included the postman collection file in this repository also.
 
 NOTE: Unfortunately this is the only output that I have produced with the limited time I have due to the reason that I have work also.
 I hope that this output have met at least of your expectation.
