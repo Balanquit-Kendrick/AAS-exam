@@ -23,7 +23,18 @@ class PositionController extends Controller
         $positions->position=$request->input('position');
         $positions->reports_to=$request->input('reports_to');
         
-        $positions->save();
+        $success = $positions->save();
+
+        if($success){
+
+            return redirect('/')->with($success, 'Position saved successfully');
+
+        }else{
+
+            return redirect('/')->with($success, 'Error creating position');
+
+        }
+
     }
 
     public function update(PositionRequest $request , $id){

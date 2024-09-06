@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-
+        @if(!empty($success))
+            <h1>{{$success}}</h1>
+        @endif
 
     <form action="http://localhost:8000/api/position" method="POST">
 
@@ -25,7 +27,7 @@
         <button type="submit">Submit</button>
 
         <h1>Table View</h1>
-
+            
             @if($positions->isEmpty())
                 <p>No positions available.</p>
             @else
@@ -41,7 +43,11 @@
                         @foreach($positions as $position)
                             <tr>
                                 <td>{{ $position->position}}</td>
+                                @if(is_null($position->reports_to))
+                                <td>{{ $position->reports_to }}</td>
+                                @else
                                 <td>{{ $position->assignTo->position }}</td>
+                                @endif
                                 <td>
                                     <button>Edit</button>&nbsp;
                                     <button>Delete</button>

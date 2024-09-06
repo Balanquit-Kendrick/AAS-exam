@@ -31,7 +31,7 @@ class PositionRequest extends FormRequest
                 'required',
                 Rule::unique('positions','position')->ignore(intval($this->id)),
             ],
-            'reports_to' => 'required|exists:positions,id',
+            'reports_to' => 'exists:positions,id',
 
         ];
     }
