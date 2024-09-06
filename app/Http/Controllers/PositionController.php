@@ -41,17 +41,41 @@ class PositionController extends Controller
 
         $positions = Position::find($id);
 
+        if (!$position) {
+            return redirect('/')->with('error', 'Position not found.');
+        }
+        
         $positions->position=$request->input('position');
         $positions->reports_to=$request->input('reports_to');
 
-        $positions->save();
+        $success = $positions->save();
+
+        if($success){
+
+            return redirect('/')->with($success, 'Position saved successfully');
+
+        }else{
+
+            return redirect('/')->with($success, 'Error creating position');
+
+        }
     }
 
     public function delete($id){
 
         $positions = Position::find($id);
 
-        $positions->delete();
+        $success = $positions->delete();
+
+        if($success){
+
+            return redirect('/')->with($success, 'Position saved successfully');
+
+        }else{
+
+            return redirect('/')->with($success, 'Error creating position');
+
+        }
     }
 
     public function show($id){
